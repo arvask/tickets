@@ -22,7 +22,15 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+      "paths": {
+          "@shared/services": ["src/app/shared/services"],
+          "@shared/modals": ["src/app/shared/modals"],
+          "@shared/components": ["src/app/shared/components"],
+          "@core/interfaces": ["src/app/core/interfaces"],
+          "@core/enums": ["src/app/core/enums"],
+          "@feature/ticket/store": ["src/app/store/ticket-store"]
+      }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
