@@ -1,15 +1,14 @@
-import { Injectable } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import {CreateEditTicketComponent} from "../../modals";
+import { Injectable } from "@angular/core";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { CreateEditTicketComponent } from "../../modals";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: "root",
 })
 export class ModalService {
+    constructor(public dialog: MatDialog) {}
 
-  constructor(public dialog: MatDialog) { }
-
-  open() {
-    return this.dialog.open(CreateEditTicketComponent)
-  }
+    open(ticketID?: string) {
+        return this.dialog.open(CreateEditTicketComponent, {data: ticketID});
+    }
 }

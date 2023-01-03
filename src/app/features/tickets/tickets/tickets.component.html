@@ -1,13 +1,18 @@
-<h1>Create tickets</h1>
-<div>
+<div class="ticket-container">
+    <h1>Create tickets</h1>
+    <div class="description">
+        Can't find what you're looking for?<br />
 
-Can't find what you're looking for?<br>
+        We’re happy to answer any questions you may have, just send us a ticket.
+    </div>
+    <button mat-raised-button color="primary" (click)="addNewTicket()">
+        Create a new ticket
+    </button>
 
-We’re happy to answer any questions you may have, just send us a ticket.
+    <app-grid
+        [title]="'Tickets'"
+        [data]="data$ | async"
+        [headerMap]="headerLabelMap"
+        [displayedColumns]="columns"
+    ></app-grid>
 </div>
-<button mat-raised-button  color="primary" (click)="addNewTicket()">Create a new ticket</button>
-
-<app-grid [title]="'Tickets'"
-          [data]="data$ | async"
-          [headerMap]="headerLabelMap"
-          [displayedColumns]="columns"></app-grid>

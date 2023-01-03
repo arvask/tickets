@@ -3,9 +3,18 @@
         [matColumnDef]="column"
         *ngFor="let column of displayedColumns"
     >
-        <th mat-header-cell *matHeaderCellDef>{{ column | gridHeaderLabel : headerMap }}</th>
-        <td mat-cell *matCellDef="let element">{{ element[column] }}
-            <ng-container [ngComponentOutlet]="test"></ng-container>
+        <th mat-header-cell *matHeaderCellDef>
+            {{ column | gridHeaderLabel : headerMap }}
+        </th>
+        <td mat-cell *matCellDef="let element">
+            <ndc-dynamic
+                [ndcDynamicComponent]="column | getCellRenderer"
+                [ndcDynamicInputs]="{
+                    value: element[column],
+                    rowId: element['identifier']
+                }"
+                [ndcDynamicOutputs]="outputs"
+            ></ndc-dynamic>
         </td>
     </ng-container>
 

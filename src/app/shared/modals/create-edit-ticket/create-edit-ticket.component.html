@@ -1,1 +1,8 @@
-<p>create-edit-ticket works!</p>
+<form class="ticket-form" [formGroup]="ticketForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>Request Name</mat-label>
+        <input matInput placeholder="Request Name" formControlName="title">
+    </mat-form-field>
+
+    <button mat-button (submit)="ticketForm"></button>
+</form>

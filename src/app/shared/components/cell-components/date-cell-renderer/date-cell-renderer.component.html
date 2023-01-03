@@ -1,1 +1,4 @@
-<p>date-cell-renderer works!</p>
+<ng-container *ngIf="value">
+    <p class="date">{{ value.toString() | date : "M/d/yy" }}</p>
+    <p class="time">{{ value.toString() | date : "h:mm a" }}</p>
+</ng-container>

@@ -4,7 +4,6 @@ export const ticketsColumnsConstant: string[] = [
     "updateAt",
     "departmentIdentifier",
     "title",
-    "messages",
-    "attachments",
     "status",
+    'action'
 ];

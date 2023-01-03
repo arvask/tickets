@@ -4,7 +4,7 @@ import { Store } from "@ngrx/store";
 import * as TicketActions from './ticket.actions';
 import {ITicket} from "../../core/interfaces";
 import {Observable} from "rxjs";
-import { selectFeatureTickets } from "./ticket.selector";
+import {selectCurrentTicket, selectFeatureTickets} from "./ticket.selector";
 
 @Injectable()
 export class TicketStoreFacade {
@@ -25,4 +25,9 @@ export class TicketStoreFacade {
     createTickets(ticket: ITicket): void {
         this.store.dispatch(TicketActions.createTicket({ticket}))
     }
+
+    getCurrentTicket(ticketID: string): Observable<ITicket | undefined> {
+        return this.store.select(selectCurrentTicket(ticketID));
+    }
+
 }

@@ -1,8 +1,12 @@
 import { Component, Input } from "@angular/core";
-import { CommonModule, NgTemplateOutlet } from "@angular/common";
+import { CommonModule } from "@angular/common";
+
 import { MatTableModule } from "@angular/material/table";
-import { GridHeaderLabelPipe } from "../../pipes/grid-header-pipe/grid-header-label.pipe";
+
+import { GridHeaderLabelPipe } from "../../pipes";
 import { DateCellRendererComponent } from "../cell-components";
+import { DynamicModule } from "ng-dynamic-component";
+import { GetCellRendererPipe } from "../../pipes/get-cell-renderer/get-cell-renderer.pipe";
 
 @Component({
     standalone: true,
@@ -10,7 +14,8 @@ import { DateCellRendererComponent } from "../cell-components";
         CommonModule,
         MatTableModule,
         GridHeaderLabelPipe,
-        NgTemplateOutlet,
+        DynamicModule,
+        GetCellRendererPipe,
     ],
     selector: "app-grid",
     templateUrl: "./grid.component.html",
@@ -22,5 +27,8 @@ export class GridComponent {
     @Input() title: any;
     @Input() headerMap: any;
 
-    test = DateCellRendererComponent;
+    inputs = {
+        hello: "world",
+    };
+    outputs = {};
 }
